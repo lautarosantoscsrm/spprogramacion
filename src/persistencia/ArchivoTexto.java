@@ -30,5 +30,16 @@ public class ArchivoTexto {
                     }
                 }
             }
+            public String leerExportacion() throws IOException{
+                StringBuilder texto = new StringBuilder();
+                
+                try(BufferedReader lector = new BufferedReader(new FileReader("alto_presupuesto.txt"))){
+                    String linea;
+                    while((linea = lector.readLine())!= null){
+                        texto.append(linea).append("\n");
+                    }
+                }
+                return texto.toString();
+            }
                     
 }
