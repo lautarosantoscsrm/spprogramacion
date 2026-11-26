@@ -9,7 +9,7 @@ import modelo.*;
 import persistencia.*;
 import servicio.GestorMisiones;
 import java.net.URL;
-import java.util.HashSet;
+
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
@@ -95,7 +95,7 @@ public class ViewController implements Initializable {
                 txtDuracion.setText(String.valueOf(m.getDuracionEstimada()));
                     cmbAgencia.setValue(null);
                     
-                    for(Agencia a : cmbAgencia().getId()){
+                    for(Agencia a : cmbAgencia.getId()){
                         cmbAgencia.setValue(a);
                             break;
                     }  
@@ -170,7 +170,8 @@ public class ViewController implements Initializable {
                          Mision m = cmbMision.getValue();
                         if(m == null){
                             throw new ValidacionException("Seleccione una mision");
-                        } Alert aviso = new Alert(Alert.AlertType.CONFIRMATION);
+                        } 
+                                Alert aviso = new Alert(Alert.AlertType.CONFIRMATION);
                         aviso.setHeaderText("Desea eliminar esta mision?");
                         aviso.setContentText(m.toString());
                             if(aviso.showAndWait().orElse(ButtonType.CANCEL)!= ButtonType.OK){
